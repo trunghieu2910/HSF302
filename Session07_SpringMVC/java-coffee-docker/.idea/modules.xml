@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/java-coffee/java-coffee.iml" filepath="$PROJECT_DIR$/java-coffee/java-coffee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java-coffee-docker.iml" filepath="$PROJECT_DIR$/.idea/java-coffee-docker.iml" />
+    </modules>
+  </component>
+</project>
