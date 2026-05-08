@@ -81,4 +81,3 @@ EXPOSE 8080
 \# 5. Lệnh khởi chạy app khi container được bật lên
 
 ENTRYPOINT \["java", "-jar", "app.jar"]
-
