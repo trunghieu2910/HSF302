@@ -1,4 +1,0 @@
-com\mycompany\coffee\entity\Coffee.class
-com\mycompany\coffee\controller\api\CoffeeApiController.class
-com\mycompany\coffee\controller\web\CoffeWebController.class
-com\mycompany\coffee\JavaCoffeeApplication.class

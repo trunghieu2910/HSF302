@@ -1,5 +1,0 @@
-# Created at 2026-05-08T13:40:35.908
-Boot Manifest-JAR contains absolute paths in classpath 'D:\Subject\1_HSF302\3_HSF_Demo\Session07_SpringMVC\java-coffee-docker\java-coffee\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-
