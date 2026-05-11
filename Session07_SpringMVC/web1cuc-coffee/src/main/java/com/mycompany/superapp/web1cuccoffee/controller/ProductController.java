@@ -11,24 +11,36 @@ import com.mycompany.superapp.web1cuccoffee.entity.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
 
 // QUAN TRỌNG : 1 URL GET   --> Ứng với 1 hàm returrn " tên trang HTML nào đó "
 @Controller
+
 public class ProductController {
-    @RequestMapping("/products") // URL nào thì gọi hàm này
-  // @GetMapping("/products") // URL nào thì gọi hàm này
-    public  String list(Model model){ // ta sẽ nhét data vào model
+    @GetMapping("/products/edit/{pid}") // tách URL tahnhf 2 phần 1 phần cố định và 1 phần thay đổi gọi là pass variable
+    public String Edit(Model model, @PathVariable("pid") String id)  {
+        return "product-form";
+    }
+
+    //@RequestMapping("/products") // URL nào thì gọi hàm này // không phân biệt get và Post , put. ...--> nguy hiểm vì miễn match URL
+
+    // cách viết chuẩn để phân biêt hàm nào tỏng java dành có get/post ....
+
+    // HÀM NHẬN REQUEST THUỘC NHÓM GET
+    @GetMapping(path={"/products","/jack"}) // cách viết nagnws ngọn hơn
+    public String list(Model model) { // ta sẽ nhét data vào model
 
         // showw all product
         model.addAttribute("msg", "Hi admins !");
         List<Product> productList = new ArrayList<>();
-        productList.add(new Product("1", "Cà phê sữa đá",10000));
-        productList.add(new Product("2", "Cà phê đen đá",9000));
-        productList.add(new Product("3", "Cà phê sữa nóng",12000));
+        productList.add(new Product("1", "Cà phê sữa đá", 10000));
+        productList.add(new Product("2", "Cà phê đen đá", 9000));
+        productList.add(new Product("3", "Cà phê sữa nóng", 12000));
         model.addAttribute("products", productList);
 
         return "products";
