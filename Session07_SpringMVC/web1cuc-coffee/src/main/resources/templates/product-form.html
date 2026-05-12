@@ -5,7 +5,31 @@
     <title>Create | Update coffee product </title>
 </head>
 <body>
-<h1>    Chào mừng bạn đến quán cafe - Create | Update coffee product </h1>
+<h1> Chào mừng bạn đến quán cafe - Create | Update coffee product </h1>
 <!--Kỹ thuật : -->
+<h2 th:text="${minzy.toString()}"></h2>
+
+Inforation to update
+<form th:action="@{/products/edit}" method="post">
+    <p>
+        <label for="id">
+            Product id : <input type="text" name="id" th:value="${minzy.getId()}" id="id">
+        </label>
+    </p>
+
+    <p>
+        <label for="name">
+            Product Name : <input type="text" name="name" th:value="${minzy.getName()}" id="name">
+        </label>
+    </p>
+
+    <p>
+        <label for="price">
+            Product Price : <input type="text" name="price" th:value="${minzy.getPrice()}" id="price">
+        </label>
+    </p>
+    <input type="submit" value="Update">
+</form>
+
 </body>
 </html>
