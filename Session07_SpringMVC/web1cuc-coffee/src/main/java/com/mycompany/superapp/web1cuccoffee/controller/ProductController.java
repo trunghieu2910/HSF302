@@ -28,7 +28,9 @@ public class ProductController {
         model.addAttribute("msg", name);
         model.addAttribute("msg1", "update successfully !");
 
-        return "results";
+//        return "results"; // HIỆN TƯỢNG RESUBMITION XUẤT HIỆN
+        return "redirect:/results"; // goị url mới hoàn toàn locahosst:8080/results
+
     }
     // KHi hàm post trả về 1 trang kết quả qua lệnh return "têntrang" thì url vẫn giữ nguyên ,trong khi đó thân trình duyệt sẽ có data đc trả về
     // Hiện tượng get cũng thế
@@ -36,8 +38,14 @@ public class ProductController {
     //F5 VỚI POST THÌ SAO ?
     // THÌ HÀM update kèm với data sẽ đươc chạy lại lần nữa(nếu nhưu là hàm create thì đang tạo thêm 1 đồituọng nữa ) --> RESUBMIT
 // XỬ LÍ POST XONG KHÔNG ĐỂ URL CŨ MÀ PHẢI ĐỔI URL
+// URL GET F5 GET LẠI
+    // URL POST   F5 POST LẠI  --> NGUYE HIỂM
 
 
+
+// REDIRECT : ĐỊNH HƯỚNG LẠI URL , GỌI LẠI 1 URL MỚI NHỮUNG VẪN CÙNG ẾT QUẢ TRẺ VỀ TRANG
+    //>>>>>>>>>>>>POST XONG NHỨO ĐỔI URL KẾT QUẢ ĐỂ TRÁNH F5 LẠI CÁI POST <<<<<<<<<<<<<<<<<<<
+    // ĐỔI URL THÌ F5 LÀ F5 KẾT QUẢ CHỨ KO PHẢI F5 POST
     @GetMapping("/products/edit/{pid}") // tách URL tahnhf 2 phần 1 phần cố định và 1 phần thay đổi gọi là pass variable
     public String showProductForm(Model model, @PathVariable("pid") String id) {
         // đã trich ra đưuocj id muốn xem chi tiết từ hyperlink
