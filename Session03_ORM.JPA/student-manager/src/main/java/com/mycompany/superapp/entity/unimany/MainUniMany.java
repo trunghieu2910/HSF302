@@ -7,7 +7,7 @@ public class MainUniMany {
     public static void main(String[] args) {
         createMajor();
     }
-
+// Chỉ có thể truy 1 chiều : tại đây 1 major ----N student , GÓC NHÌN TỪ PHÍA Student N ---->nên Major 1  , Vì vậy mà Student giữ 1 thuộc tính Major còn Major không giữ thuộc tính nào của Student vì vậy mà từ Student có thể tra ra Major nhưng từ Major không thể tra ra Student
     public static void createMajor() {
         Major se = new Major("SE", "Software Engineering | kỸ THUẬT PHẦN MỀM");
         Student student = new Student("S001", "Alice", 2000, 3.5);

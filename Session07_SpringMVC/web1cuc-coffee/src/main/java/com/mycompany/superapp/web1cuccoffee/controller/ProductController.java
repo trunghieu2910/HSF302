@@ -24,9 +24,18 @@ public class ProductController {
     @PostMapping("/products/edit")
     public String update(Model model, @RequestParam("id") String id ,@RequestParam("name") String name, @RequestParam("price") double price) {// nếu có 10 thuộc tính phải lấy 10 lần
         // @RequestParam : lấy dữ liệu của từng ô nhập
+
         model.addAttribute("msg", name);
+        model.addAttribute("msg1", "update successfully !");
+
         return "results";
     }
+    // KHi hàm post trả về 1 trang kết quả qua lệnh return "têntrang" thì url vẫn giữ nguyên ,trong khi đó thân trình duyệt sẽ có data đc trả về
+    // Hiện tượng get cũng thế
+    // Ý NGHĨA CỦA VIỆC GIỮ NGUYÊN TÊN URL : VÌ GỌI HÀM THÌ TRẢ VỀ KẾT QUẢ Ở DƯỚI , TÊN HÀM VẪN LÀ URL Ở TRÊN
+    //F5 VỚI POST THÌ SAO ?
+    // THÌ HÀM update kèm với data sẽ đươc chạy lại lần nữa(nếu nhưu là hàm create thì đang tạo thêm 1 đồituọng nữa ) --> RESUBMIT
+// XỬ LÍ POST XONG KHÔNG ĐỂ URL CŨ MÀ PHẢI ĐỔI URL
 
 
     @GetMapping("/products/edit/{pid}") // tách URL tahnhf 2 phần 1 phần cố định và 1 phần thay đổi gọi là pass variable
@@ -76,4 +85,7 @@ public class ProductController {
     // CONTROLLER NHÉT ĐỒ VÀO THÙNG
     // TRANG WEB HTML/THEMELEAF LẤY ĐỒ TỪ THÙNG RA HIỂN THỊ
     // LOGIC NHƯ SAU :
+    // Ý NGHĨA CỦA VC DỮ NGUYÊN URL
+
+
 }
