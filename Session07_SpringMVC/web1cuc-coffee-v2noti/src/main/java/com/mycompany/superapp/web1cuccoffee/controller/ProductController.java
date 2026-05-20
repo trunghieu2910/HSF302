@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ProductController {
     @GetMapping("/msg")
-    private String  shoMasg() {
+    private String shoMasg() {
         // làm sao lấy đc name của post
 
         // 1 url 1 hàm tương ứng , 1 thùng mode tương ứng mưới tinh để ta bỏ đồ vào trước khi render trang
@@ -31,20 +31,21 @@ public class ProductController {
 
         //
     }
+
     // update 1 sp xg data base đc gọi bỏi hàm ấn nút save
     //@GetMapping("products/edit")
     @PostMapping("/products/edit")
-    public String update(Model model, @RequestParam("id") String id , @RequestParam("name") String name, @RequestParam("price") double price, RedirectAttributes re) {// nếu có 10 thuộc tính phải lấy 10 lần
+    public String update(Model model, @RequestParam("id") String id, @RequestParam("name") String name, @RequestParam("price") double price, RedirectAttributes re) {// nếu có 10 thuộc tính phải lấy 10 lần
         // @RequestParam : lấy dữ liệu của từng ô nhập
 
         model.addAttribute("msg", name);
         model.addAttribute("msg1", "update successfully !");
         // 2 câu này vô dụng khi dungf redirect
-re.addFlashAttribute("msg", name);
-re.addFlashAttribute("msg1", "update successfully !");
+        re.addFlashAttribute("msg", name);
+        re.addFlashAttribute("msg1", "update successfully !");
 //        return "results"; // HIỆN TƯỢNG RESUBMITION XUẤT HIỆN
 
-        return "redirect:/msg"; // goị url mới hoàn toàn locahosst:8080/results
+        return "redirect:/products"; // goị url mới hoàn toàn locahosst:8080/results
 
     }
 
@@ -58,8 +59,7 @@ re.addFlashAttribute("msg1", "update successfully !");
     // URL POST   F5 POST LẠI  --> NGUYE HIỂM
 
 
-
-// REDIRECT : ĐỊNH HƯỚNG LẠI URL , GỌI LẠI 1 URL MỚI NHỮUNG VẪN CÙNG ẾT QUẢ TRẺ VỀ TRANG
+    // REDIRECT : ĐỊNH HƯỚNG LẠI URL , GỌI LẠI 1 URL MỚI NHỮUNG VẪN CÙNG ẾT QUẢ TRẺ VỀ TRANG
     //>>>>>>>>>>>>POST XONG NHỨO ĐỔI URL KẾT QUẢ ĐỂ TRÁNH F5 LẠI CÁI POST <<<<<<<<<<<<<<<<<<<
     // ĐỔI URL THÌ F5 LÀ F5 KẾT QUẢ CHỨ KO PHẢI F5 POST
     @GetMapping("/products/edit/{pid}") // tách URL tahnhf 2 phần 1 phần cố định và 1 phần thay đổi gọi là pass variable
@@ -95,7 +95,7 @@ re.addFlashAttribute("msg1", "update successfully !");
     public String list(Model model) { // ta sẽ nhét data vào model
 
         // showw all product
-        model.addAttribute("msg", "Hi admins !");
+//        model.addAttribute("msg", "Hi admins !");
         List<Product> productList = new ArrayList<>();
         productList.add(new Product("1", "Cà phê sữa đá", 10000));
         productList.add(new Product("2", "Cà phê đen đá", 9000));

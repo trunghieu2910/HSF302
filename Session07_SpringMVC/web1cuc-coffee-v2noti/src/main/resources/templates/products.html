@@ -2,32 +2,55 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>The list of Products  : </title>
+    <title>The list of Products : </title>
 </head>
 <body>
 <h1>Chào mừng bạn đến quán cafe - Products list </h1>
-<h2 th:text ="${msg}">Danh sách sản phẩm : </h2>
+<h2>Danh sách sản phẩm : </h2>
 <h3>The list of products </h3>
 <table border="1">
     <thead>
     <th>Id</th>
     <th>Name</th>
     <th>Price</th>
-    <th>Actions </th>
+    <th>Actions</th>
     </thead>
     <tr th:each="x : ${products}">
         <td th:text="${x.getId()}"></td>
         <td th:text="${x.getName()}"></td>
         <td th:text="${x.getPrice()}"></td>
         <td>
-            <a th:href="@{'/products/edit/'+ ${x.id}}" > Edit </a> |
-            <a th:href="@{'/products/delete/'+ ${x.id}}" > Delete </a>
+            <a th:href="@{'/products/edit/'+ ${x.id}}"> Edit </a> |
+            <a th:href="@{'/products/delete/'+ ${x.id}}"> Delete </a>
         </td>
-    <tbody>
 
 
-    </tbody>
 </table>
-
+<h2 th:if="${msg}" th:text="'name '+ ${msg}"></h2>
+<h2 th:if="${msg1}" th:text="'Massage :'+${msg1}"></h2>
 </body>
+
+<!--//THEO CHUẨN XML/XHTML parser ***********************-->
+<script th:if="${msg1}" th:inline="javascript">
+    //<![CDATA[
+    alert([[${msg1}]]);
+    //]]>
+</script>
+
+
+<!--//THEO CHUẨN HTML5 ***********************-->
+<script th:if="${msg1}" th:inline="javascript">
+    // Thymeleaf sẽ render thành: alert("…");
+    alert([[${msg1}]]);
+</script>
+
+
+<!--//THEO CHUẨN HTML5 ***********************-->
+<!-- Script alert sau khi trang load xong -->
+<script th:if="${msg1}" th:inline="javascript">
+    window.addEventListener('load', function() {
+        // Thymeleaf sẽ render thành: alert("…");
+        alert([[${msg1}]]);
+    });
+</script>
 </html>
